@@ -1,0 +1,95 @@
+header{
+    border-bottom: solid 1px;
+    margin-bottom: 20px;
+    background-color: antiquewhite;
+    margin: 0;
+  }
+  
+  
+  main{
+    margin: 0 40px 0 40px;
+  }
+  
+  h1{
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  h2{
+  margin: 5px 0 5px 0;
+  padding: 5px;
+  }
+  
+  
+  
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"]{
+    margin-bottom: 20px;
+  }
+  
+  
+  .fa{
+    color: black;
+    border: none;
+    background: none;
+    margin: 10px 0 10px 0;
+  }
+  
+  .checked{
+    color: gold;
+  }
+  
+  .bookmarkCondensed{
+    display: flex;
+    border: solid 1px;
+    margin: 10px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bookmarkExpanded{
+      display: flex;
+      border: solid 1px;
+      margin: 10px;
+      padding: 10px;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .expandButton{
+    margin: 5px;
+  }
+  
+  .starRating{
+    margin: 5px;
+  }
+  
+  .description{
+    width: 50%;
+  }
+  
+  #filter{
+    width: 15%;
+    margin: 0;
+  }
+  
+  #bookmarkOptions{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+  }
+  
+  .bookmarkHeader{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
