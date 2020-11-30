@@ -1,5 +1,5 @@
-import $ from 'jquery';
-import store from './store';
+import $ from "jquery";
+import store from "./store";
 
 /***** HTML generators *****/
 // Generate and return HTML for bookmarks list
@@ -55,7 +55,9 @@ function generateBookmarkHeader(bookmark) {
 
 // Function for generating HTML for URLs
 function generateBookmarkURLHTML(bookmark) {
-  return `<a href='${bookmark.url}' target="_blank">${generateBookmarkVisitButtonHTML()}</a>`;
+  return `<a href='${
+    bookmark.url
+  }' target="_blank">${generateBookmarkVisitButtonHTML()}</a>`;
 }
 
 // Function for generating visit button HTML
@@ -77,7 +79,7 @@ function generateDeleteButtonHTML() {
 function generateBookmarkDescriptionHTML(bookmark) {
   return checkIfBookmarkHasDescription(bookmark)
     ? `<p>Description: ${bookmark.desc}</p>`
-    : '';
+    : "";
 }
 
 // Function for checking if a bookmark has a description
@@ -90,7 +92,7 @@ function checkIfBookmarkHasDescription(bookmark) {
 function generateBookmarkRatingHTML(bookmark) {
   return checkIfBookmarkHasRating(bookmark)
     ? `| ${generateStarsHTML(bookmark.rating)}`
-    : '';
+    : "";
 }
 
 // Function for checking if bookmark has a rating
@@ -103,13 +105,13 @@ function checkIfBookmarkHasRating(bookmark) {
 function generateStarsHTML(rating) {
   const ariaLabel = `<span aria-label="rating: ${rating} stars">`;
   const arrayOfStarsHTML = [ariaLabel];
-  const closeSpan = '</span>';
+  const closeSpan = "</span>";
 
   for (let i = 0; i < rating; i++) {
     generateStarHTML(arrayOfStarsHTML, rating);
   }
   arrayOfStarsHTML.push(closeSpan);
-  return arrayOfStarsHTML.join('');
+  return arrayOfStarsHTML.join("");
 }
 
 // Function for generating a single FA star and pushing to a given array
@@ -119,7 +121,7 @@ function generateStarHTML(array) {
 
 // Filter an array of bookmarks based on rating
 function filterArrayOfBookmarks(arrayOfBookmarks, filterValue) {
-  return arrayOfBookmarks.filter(bookmark => bookmark.rating >= filterValue);
+  return arrayOfBookmarks.filter((bookmark) => bookmark.rating >= filterValue);
 }
 
 // Map an array of store objects to HTML
@@ -203,9 +205,8 @@ function generateNewBookmarkFormHTML() {
     `;
 }
 
-  
 export default {
   generateUpdateBookmarkForm,
   generateNewBookmarkFormHTML,
-  generateBookmarksListHTML
+  generateBookmarksListHTML,
 };
