@@ -35,17 +35,16 @@ ul {
 .new-item-li {
   list-style-type: none;
   text-align: center;
+  margin-top: .5em;
 }
 
 
 /***** Controls *****/
 /* Add some space between new bookmark button and filter */
 .controls {
-  display: block;
+  display: flex;
   text-align: left;
-}
-
-.controls button {
+  justify-content: space-between;  
   margin-bottom: 1.5em;
 }
 
@@ -69,6 +68,7 @@ ul {
   border-top: 3px solid #d1d1d1;
   padding-top: 1em;
   margin-top: 2em;
+  
 }
 
 /* Makes the drop down look not tiny */
@@ -100,6 +100,7 @@ select {
 .bookmark-item {
   margin-top: 12px;
   list-style-type: none;
+  
 }
 
 .bookmark-body {
@@ -111,6 +112,7 @@ select {
   padding-top: 0.5em;
   padding-left: 1em;
    padding-right: 1em;
+   
 }
 
 .bookmark-body p {
