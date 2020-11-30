@@ -1,96 +1,245 @@
+* {
+  box-sizing: border-box;
+}
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 68px;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
 
-header{
-    border-bottom: solid 1px;
-    margin-bottom: 20px;
-    background-color: antiquewhite;
-    margin: 0;
+/* Body font */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Remove default padding from uls where bullets normally are */
+ul {
+  padding: 0;
+}
+
+
+/***** New bookmark form *****/
+/* Blocks the form container div so we can center it */
+.form-container {
+  /* background-color: red; */
+  display: block;
+  text-align: center;
+}
+
+/* Removes bullets from new bookmark form and centers */
+.new-item-li {
+  list-style-type: none;
+  text-align: center;
+}
+
+
+/***** Controls *****/
+/* Add some space between new bookmark button and filter */
+.controls {
+  text-align: left;
+}
+
+.controls button {
+  margin-bottom: 1.5em;
+}
+
+/* Add new bookmark button styles */
+.add-button {
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.edit-btn {
+  margin-left: 10px;
+  float: right;
+}
+
+/***** Bookmarks *****/
+.bookmark-container {
+  border-top: 3px solid #d1d1d1;
+  padding-top: 1em;
+  margin-top: 2em;
+}
+
+/* Makes the drop down look not tiny */
+select {
+  display: block;
+  margin: auto 50px;
+  /* margin-left: auto;
+  margin-right: auto; */
+
+}
+
+/***** Bookmarks list *****/
+/* Styles for the bookmark headers */
+.header-button {
+  width: 100%;
+  height: 100%;
+}
+
+.header-button:hover {
+  border-color: #b9b9b9;
+  background-color: #b9b9b9;
+}
+
+/* Styles for the bookmarks */
+.bookmark-header {
+  background-color: #d1d1d1;
+  border-left: 2px solid #bdb9b9;
+  border-right: 2px solid #bdb9b9;
+  border-top: 2px solid #bdb9b9;
+  border-bottom: 2px solid #bdb9b9;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bookmark-item {
+  margin-top: 12px;
+  list-style-type: none;
+}
+
+.bookmark-body {
+  border-left: 2px solid #bdb9b9;
+  border-right: 2px solid #bdb9b9;
+  border-bottom: 2px solid #bdb9b9;
+  padding-bottom: 1em;
+  padding-top: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.bookmark-body p {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.bookmark-button {
+  float: right;
+}
+
+/***** Utility *****/
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+.add-btn-container {
+  text-align: center;
+}
+
+legend {
+  color: #606060;
+}
+
+fieldset {
+  /* border-color: #bdb9b9; */
+  border: 2px solid #bdb9b9;
+}
+
+/***** Style inputs *****/
+input[type='text'],
+input[type='url'],
+textarea,
+select {
+  background-color: #fff;
+  border: 2px solid #d1d1d1;
+  box-sizing: border-box;
+  height: 38px;
+  margin-bottom: 0.5em;
+  text-align: center;
+  width: 184.417px;
+}
+
+input[type='text'],
+input[type='url'],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+}
+
+textarea {
+  min-height: 68px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+input[type='text']:focus,
+input[type='url']:focus,
+textarea:focus,
+select:focus {
+  border: 3px solid #aaa8a8;
+  outline: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.filter-control {
+  float: right;
+}
+
+/***** Style buttons *****/
+button, .filter-control {
+  background-color: transparent;
+  border: 3px solid #d1d1d1;
+  box-sizing: border-box;
+  color: #555;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  height: 38px;
+  letter-spacing: 0.05rem;
+  line-height: 34px;
+  padding: 0 26px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button:hover {
+  color: rgb(46, 45, 45);
+  border-color: #858383;
+  outline: 0;
+}
+
+/* Mobile "my buttons look fine!" media query */
+@media (max-width: 460px) {
+  #filter-label {
+    float: none;
+    display: inline-block;
+    text-align: center;
   }
-  
-  
-  main{
-    margin: 0 40px 0 40px;
+
+  select {
+    float: none;
   }
-  
-  h1{
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
+
+  /* .filter-control {
+    float: none;
+  } */
+
+  .controls {
+    text-align: center;
   }
-  
-  h2{
-  margin: 5px 0 5px 0;
-  padding: 5px;
+
+  .edit-btn {
+    float: none;
   }
-  
-  
-  
-  form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 10px;
+
+  .bookmark-button {
+    float: none;
   }
-  
-  input[type="text"]{
-    margin-bottom: 20px;
-  }
-  
-  
-  .fa{
-    color: black;
-    border: none;
-    background: none;
-    margin: 10px 0 10px 0;
-  }
-  
-  .checked{
-    color: gold;
-  }
-  
-  .bookmarkCondensed{
-    display: flex;
-    border: solid 1px;
-    margin: 10px;
-    padding: 10px;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .bookmarkExpanded{
-      display: flex;
-      border: solid 1px;
-      margin: 10px;
-      padding: 10px;
-      flex-direction: column;
-      align-items: center;
-  }
-  
-  .expandButton{
-    margin: 5px;
-  }
-  
-  .starRating{
-    margin: 5px;
-  }
-  
-  .description{
-    width: 50%;
-  }
-  
-  #filter{
-    width: 15%;
-    margin: 0;
-  }
-  
-  #bookmarkOptions{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 10px;
-  }
-  
-  .bookmarkHeader{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-  }
+}
