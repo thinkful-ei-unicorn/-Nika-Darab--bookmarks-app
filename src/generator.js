@@ -55,7 +55,7 @@ function generateBookmarkHeader(bookmark) {
 
 // Function for generating HTML for URLs
 function generateBookmarkURLHTML(bookmark) {
-  return `<a href='${bookmark.url}'>${generateBookmarkVisitButtonHTML()}</a>`;
+  return `<a href='${bookmark.url}' target="_blank">${generateBookmarkVisitButtonHTML()}</a>`;
 }
 
 // Function for generating visit button HTML
@@ -156,7 +156,7 @@ function generateUpdateBookmarkForm() {
           </select>
         </div>
         <!-- Add/Cancel button -->
-        <div class='add-btn-container col-12'>
+        <div class='add-btn-container'>
           <button type='submit' id='js-update-bookmark' class='add-button'>UPDATE BOOKMARK</button>
           <button type='button' id='js-cancel-bookmark'>CANCEL</button>
         </div>
