@@ -5,14 +5,14 @@
 function addBookmark(bookmarkObject) {
   // Default object to merge into bookmarkObject, which will give it the KVP of expanded: false
   const defaultObjectProps = {
-    expanded: false
+    expanded: false,
   };
   this.bookmarks.push(Object.assign(bookmarkObject, defaultObjectProps));
 }
 
 // Function for updating a bookmark
 function updateBookmark(bookmarkID, bookmarkToMerge) {
-  const object = this.bookmarks.find(bookmark => bookmark.id === bookmarkID);
+  const object = this.bookmarks.find((bookmark) => bookmark.id === bookmarkID);
   Object.assign(object, bookmarkToMerge);
 }
 
@@ -29,7 +29,7 @@ function setUpdatingBookmarkStatus(bool) {
 // Function for deleting a bookmark by ID
 function deleteBookmark(bookmarkID) {
   this.bookmarks = this.bookmarks.filter(
-    bookmark => bookmark.id !== bookmarkID
+    (bookmark) => bookmark.id !== bookmarkID
   );
 }
 
@@ -41,13 +41,13 @@ function filterBookmarksByRating(rating) {
 
 // Function for creating filtered array of bookmarks based on rating
 function filterStoreBookmarksArray() {
-  this.bookmarks.filter(bookmark => bookmark.rating >= this.ratingFilter);
+  this.bookmarks.filter((bookmark) => bookmark.rating >= this.ratingFilter);
 }
 
 // Function for toggling the expanded status of a bookmark by ID
 function toggleBookmarkExpanded(bookmarkID) {
   const bookmarkToToggle = this.bookmarks.find(
-    bookmark => bookmark.id === bookmarkID
+    (bookmark) => bookmark.id === bookmarkID
   );
   bookmarkToToggle.expanded = !bookmarkToToggle.expanded;
 }
@@ -66,19 +66,19 @@ function setRatingFilter(value) {
 /***** Functions for navigating the store *****/
 // Find and return a bookmark by ID value
 function findByID(bookmarkID) {
-  return this.bookmarks.find(bookmark => bookmark.id === bookmarkID);
+  return this.bookmarks.find((bookmark) => bookmark.id === bookmarkID);
 }
 
 // Find and delete a bookmark by ID value
 function findAndDelete(bookmarkID) {
   this.bookmarks = this.bookmarks.filter(
-    bookmark => bookmark.id !== bookmarkID
+    (bookmark) => bookmark.id !== bookmarkID
   );
 }
 
 // Function for checking the hidden status
 function checkIfShouldBeHidden(bookmark) {
-  return !bookmark.expanded ? 'hidden' : '';
+  return !bookmark.expanded ? "hidden" : "";
 }
 
 // Function for checking if we're adding a bookmark
@@ -104,8 +104,6 @@ function resetEditingObject() {
   this.editingObject = {};
 }
 
-  
-
 export default {
   bookmarks: [],
   ratingFilter: 0,
@@ -125,5 +123,5 @@ export default {
   setUpdatingBookmarkStatus,
   checkIfEditingBookmark,
   setEditingObject,
-  resetEditingObject
+  resetEditingObject,
 };
