@@ -13,15 +13,10 @@
     <h1>Bookmarks</h1>
   </header>
 
-  <main>
-    <!-- Controls div -->
+  
     <section>
       <div class='controls'>
-        <!-- New bookmark button -->
         <button id='js-new-bookmark'>NEW BOOKMARK</button>
-        <!-- End bookmark button -->
-
-        <!-- Filter -->
         <select class='filter-control' id='js-filter-control' name='filter' aria-label='Filter ratings by minimum rating'>
           <option value='0'>Filter</option>
           <option value='5'>5 stars</option>
@@ -30,32 +25,24 @@
           <option value='2'>2+ stars</option>
         </select>
         <label for='filter-control' id='filter-label'></label>
-        <!-- End filter -->
-
       </div>
     </section>
-    <!-- End controls div -->
-
-    <!-- Form container -->
+ 
     <section>
       <div id='js-form-container' class='form-container'></div>
     </section>
-    <!-- End form container -->
-
-    <!-- Error container -->
+    
     <section class='row error-message-container'>
       <span id='js-error-message'>
       </span>
     </section>
-    <!-- End error container -->
-
-    <!-- Bookmark container -->
+   
     <section>
       <div class='bookmark-container'>
         <ul class='js-bookmarks-container'></ul>
       </div>
     </section>
-    <!-- End bookmark container -->
+    <main>
   </main>
 
   <!-- Scripts -->

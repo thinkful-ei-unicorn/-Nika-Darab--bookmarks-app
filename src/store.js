@@ -1,7 +1,3 @@
-// eslint-disabled-next-line no-unused-vars
-
-/***** Functions for modifying the store *****/
-// Function for adding a bookmark
 function addBookmark(bookmarkObject) {
   // Default object to merge into bookmarkObject, which will give it the KVP of expanded: false
   const defaultObjectProps = {

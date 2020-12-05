@@ -1,14 +1,13 @@
-/* eslint-disable no-console */
-import $ from "jquery";
+import $ from 'jquery';
 // // import 'normalize.css';
-import "./index.css";
-import api from "./api";
-import store from "./store";
-import bookmark from "./bookmark-list";
-import "@fortawesome/fontawesome-free/js/fontawesome";
-import "@fortawesome/fontawesome-free/js/solid";
-import "@fortawesome/fontawesome-free/js/regular";
-import "@fortawesome/fontawesome-free/js/brands";
+import './index.css';
+import api from './api';
+import store from './store';
+import bookmark from './bookmark-list';
+import '@fortawesome/fontawesome-free/js/fontawesome';
+import '@fortawesome/fontawesome-free/js/solid';
+import '@fortawesome/fontawesome-free/js/regular';
+import '@fortawesome/fontawesome-free/js/brands';
 
 const main = function () {
   api.getBookmarks().then((items) => {

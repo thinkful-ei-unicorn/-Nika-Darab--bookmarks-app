@@ -1,5 +1,5 @@
-import $ from "jquery";
-import store from "./store";
+import $ from 'jquery';
+import store from './store';
 
 /***** HTML generators *****/
 // Generate and return HTML for bookmarks list
@@ -22,9 +22,9 @@ function runGeneratorFunctions(bookmark, hiddenStatus) {
   return `
     ${generateLiItemWithDataID(bookmark)}
     ${generateBookmarkHeader(bookmark)}
-    ${genereateDivWithClassHTML(hiddenStatus)}
+    ${generateDivWithClassHTML(hiddenStatus)}
       ${generateBookmarkDescriptionHTML(bookmark)}
-      ${generateBookmarkURLHTML(bookmark)}${generateBookmarkEditButtonHTML()}
+      ${generateBookmarkURLHTML(bookmark)}
       ${generateDeleteButtonHTML(bookmark)}
     ${generateAsideLiClosingTags()}
     `;
@@ -42,7 +42,7 @@ function generateAsideLiClosingTags() {
 }
 
 // Function for generating div with hidden status
-function genereateDivWithClassHTML(hiddenStatus) {
+function generateDivWithClassHTML(hiddenStatus) {
   return `<aside class='bookmark-body ${hiddenStatus}'>`;
 }
 
@@ -65,11 +65,6 @@ function generateBookmarkVisitButtonHTML() {
   return '<button class="js-btn-visit" aria-label="Visit site">VISIT</button>';
 }
 
-// Function for generating edit button HTML
-function generateBookmarkEditButtonHTML() {
-  return '<button class="edit-btn js-btn-edit" aria-label="Edit bookmark">EDIT</button>';
-}
-
 // Function for generating delete button HTML
 function generateDeleteButtonHTML() {
   return '<button class="bookmark-button js-btn-delete" aria-label="Delete bookmark">DELETE</button>';
@@ -79,7 +74,7 @@ function generateDeleteButtonHTML() {
 function generateBookmarkDescriptionHTML(bookmark) {
   return checkIfBookmarkHasDescription(bookmark)
     ? `<p>Description: ${bookmark.desc}</p>`
-    : "";
+    : '';
 }
 
 // Function for checking if a bookmark has a description
@@ -92,7 +87,7 @@ function checkIfBookmarkHasDescription(bookmark) {
 function generateBookmarkRatingHTML(bookmark) {
   return checkIfBookmarkHasRating(bookmark)
     ? `| ${generateStarsHTML(bookmark.rating)}`
-    : "";
+    : '';
 }
 
 // Function for checking if bookmark has a rating
@@ -105,13 +100,13 @@ function checkIfBookmarkHasRating(bookmark) {
 function generateStarsHTML(rating) {
   const ariaLabel = `<span aria-label="rating: ${rating} stars">`;
   const arrayOfStarsHTML = [ariaLabel];
-  const closeSpan = "</span>";
+  const closeSpan = '</span>';
 
   for (let i = 0; i < rating; i++) {
     generateStarHTML(arrayOfStarsHTML, rating);
   }
   arrayOfStarsHTML.push(closeSpan);
-  return arrayOfStarsHTML.join("");
+  return arrayOfStarsHTML.join('');
 }
 
 // Function for generating a single FA star and pushing to a given array

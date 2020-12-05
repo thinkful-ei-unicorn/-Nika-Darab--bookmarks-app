@@ -46,7 +46,7 @@ ul {
 }
 
 /* Add new bookmark button styles */
-.add-button {
+button {
   display: block;
   margin-left: auto;
   margin-right: auto;

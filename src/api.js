@@ -1,7 +1,7 @@
-import $ from "jquery";
+import $ from 'jquery';
 
 // Base url for API
-const BASE_URL = "https://thinkful-list-api.herokuapp.com/nikadarab";
+const BASE_URL = 'https://thinkful-list-api.herokuapp.com/nikadarab/bookmarks';
 
 /**
  * listApiFetch - Wrapper function for native `fetch` to standardize error handling.
@@ -20,7 +20,7 @@ const listApiFetch = function (...args) {
 
         // if response is not JSON type, place statusText in error object and
         // immediately reject promise
-        if (!res.headers.get("content-type").includes("json")) {
+        if (!res.headers.get('content-type').includes('json')) {
           error.message = res.statusText;
           return Promise.reject(error);
         }
@@ -46,15 +46,15 @@ const listApiFetch = function (...args) {
 
 // Function for sending GET request to the DB
 function getBookmarks() {
-  return listApiFetch(`${BASE_URL}/bookmarks`);
+  return listApiFetch(`${BASE_URL}`);
 }
 
 // Function for creating a new bookmark to POST to DB
 function createNewBookmark(bookmarkObject) {
-  return listApiFetch(`${BASE_URL}/bookmarks`, {
-    method: "POST",
+  return listApiFetch(`${BASE_URL}`, {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(bookmarkObject),
   });
@@ -62,16 +62,16 @@ function createNewBookmark(bookmarkObject) {
 
 // Function for sending a DELETE request to the DB
 function deleteBookmark(id) {
-  return listApiFetch(`${BASE_URL}/bookmarks/${id}`, {
-    method: "DELETE",
+  return listApiFetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
   });
 }
 // Function for updating a new bookmark
 function updateBookmark(id, updateObject) {
-  return listApiFetch(`${BASE_URL}/bookmarks/${id}`, {
-    method: "PATCH",
+  return listApiFetch(`${BASE_URL}/${id}`, {
+    method: 'PATCH',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(updateObject),
   });
