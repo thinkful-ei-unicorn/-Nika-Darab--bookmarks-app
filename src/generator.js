@@ -124,6 +124,8 @@ function mapFilteredArrayOfBookmarksToHTML(arrayOfBookmarks) {
   return arrayOfBookmarks.map(generateSingleBookmarkListHTML);
 }
 
+
+  
 // Generate and return HTML for new bookmark form
 function generateUpdateBookmarkForm() {
   return `

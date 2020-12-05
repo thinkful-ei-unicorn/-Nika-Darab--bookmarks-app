@@ -3,8 +3,6 @@ import store from './store';
 import api from './api';
 import generator from './generator';
 
-/***** Event listener handlers *****/
-// Handle binding all event listeners
 function bindEventListeners() {
   handleNewBookmarkClicked();
   handleAddBookmarkClicked();
@@ -12,7 +10,8 @@ function bindEventListeners() {
   handleFilterRatingsDropdown();
   handleToggleExpandedBookmarkView();
   handleCancelButton();
-  // handleEditBookmarkForm;
+  renderError();
+
 }
 $.fn.extend({
   serializeJSON: function () {
@@ -28,7 +27,6 @@ $.fn.extend({
 function handleNewBookmarkClicked() {
   $('#js-new-bookmark').on('click', () => {
     store.setAddingBookmarkStatus(true);
-    store.setUpdatingBookmarkStatus(false);
     render();
   });
 }
@@ -37,7 +35,6 @@ function handleNewBookmarkClicked() {
 function handleAddBookmarkClicked() {
   $('#js-form-container').on('submit', '#js-new-item-form', (event) => {
     event.preventDefault();
-    // Serialize the JSON and parse it into an object
     const serializedJSON = JSON.parse($(event.target).serializeJSON());
     const newBookmarkObject = constructBookmarkObject(serializedJSON);
 
@@ -52,13 +49,10 @@ function handleAddBookmarkClicked() {
 // Handler for delete bookmark clicked
 function handleDeleteBookmarkClicked() {
   $('.js-bookmarks-container').on('click', '.js-btn-delete', (event) => {
-    // Captured the bookmark's ID
     const bookmarkUniqueID = getDataID(event.currentTarget);
-    // Prompt user for confirmation
     const confirmedDeletion = confirm(
       'Are you sure you want to delete this bookmark?'
     );
-    // Use the ID to delete the item from the DB
     if (confirmedDeletion) {
       api.deleteBookmark(bookmarkUniqueID).then(() => {
         store.findAndDelete(bookmarkUniqueID);
@@ -68,15 +62,11 @@ function handleDeleteBookmarkClicked() {
   });
 }
 
-// Handler for edit button
 
-
-// Handler for cancel button
 function handleCancelButton() {
   $('#js-form-container').on('click', '#js-cancel-bookmark', () => {
     // If we cancel we set the updating/adding statuses to false
     store.setAddingBookmarkStatus(false);
-    store.setUpdatingBookmarkStatus(false);
     // Render
     render();
   });
@@ -101,10 +91,6 @@ function handleToggleExpandedBookmarkView() {
     render();
   });
 }
-
-
-/***** Utility functions *****/
-// Function for constructing a new bookmark object
 function constructBookmarkObject(serializedJSON) {
   const newObject = {};
 
@@ -135,13 +121,10 @@ function constructBookmarkObject(serializedJSON) {
   return newObject;
 }
 
-/*** Data ID functions ***/
 // Gets the data-id of a given bookmark
 function getDataID(bookmark) {
   return $(bookmark).closest('.js-bookmark-item').attr('data-id');
 }
-
-// Function for getting the data-id attribute of the nearest js-bookmark-item
 
 // Function for clearing form values
 function clearFormValues() {
@@ -150,8 +133,25 @@ function clearFormValues() {
   $('#js-form-url').val('');
   $('#js-form-rating').val('');
 }
-
+function genrateError(error){
+  return `
+        <div class='error-message'>
+          <h3>--ERROR--</h3>
+          <span>${error}</span>
+          <button class='closeError'>Close</button>
+        </div>`;
+}
 // Render page
+function renderError()
+{
+  if(store.error) {
+    const error = genrateError(store.error);
+    $('#js-error-message').html(error);
+  } else {
+    $('#js-error-message').html('');
+  }
+}
+
 function render() {
   // store bookmarks as a variable
   const bookmarks = store.bookmarks;
@@ -164,32 +164,14 @@ function render() {
   if (store.checkIfAddingBookmark()) {
     // Add the form onto the page
     $('#js-form-container').html(generator.generateNewBookmarkFormHTML());
-  } else if (store.checkIfEditingBookmark()) {
-    $('#js-form-container').html(generator.generateUpdateBookmarkForm());
   } else {
     // Otherwise clear out the HTML in the form container
     $('#js-form-container').html('');
   }
 
   // Sets form text if there is an editingObject and if not adding a bookmark (this means the form will be cleared if user does edit -> new bookmark)
-  if (store.editingObject && !store.checkIfAddingBookmark()) {
-    $('#js-form-title').val(store.editingObject.title);
-    $('#js-form-description').val(store.editingObject.desc);
-    $('#js-form-url').val(store.editingObject.url);
-    $('#js-form-rating').val(store.editingObject.rating);
-  } else if (!store.checkIfAddingBookmark()) {
-    clearFormValues();
-  }
 
-  // // Displays errors if found
-  // if (store.errorMessage) {
-  //   $('#js-error-message').html(store.errorMessage);
-  //   store.setErrorMessage('');
-  // } else {
-  //   $('#js-error-message').html('');
-  // }
 
-  // If a ratingFilter is active only render the relevant parts of store
   if (filterValue > 0) {
     // Restrict rendering
     bookmarkListHTML = generator.generateBookmarksListHTML(

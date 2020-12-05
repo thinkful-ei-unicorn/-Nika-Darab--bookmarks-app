@@ -74,7 +74,7 @@ function findAndDelete(bookmarkID) {
 
 // Function for checking the hidden status
 function checkIfShouldBeHidden(bookmark) {
-  return !bookmark.expanded ? "hidden" : "";
+  return !bookmark.expanded ? 'hidden' : '';
 }
 
 // Function for checking if we're adding a bookmark
@@ -82,23 +82,6 @@ function checkIfAddingBookmark() {
   return this.addingBookmark;
 }
 
-// Function for checking if we're editing a bookmark
-function checkIfEditingBookmark() {
-  return this.updatingBookmark;
-}
-
-// Function for setting editingObject
-function setEditingObject(object) {
-  this.editingObject.title = object.title;
-  this.editingObject.desc = object.desc;
-  this.editingObject.url = object.url;
-  this.editingObject.rating = object.rating;
-}
-
-// Function for resetting editingObject
-function resetEditingObject() {
-  this.editingObject = {};
-}
 
 export default {
   bookmarks: [],
@@ -117,7 +100,4 @@ export default {
   checkIfShouldBeHidden,
   updateBookmark,
   setUpdatingBookmarkStatus,
-  checkIfEditingBookmark,
-  setEditingObject,
-  resetEditingObject,
 };
