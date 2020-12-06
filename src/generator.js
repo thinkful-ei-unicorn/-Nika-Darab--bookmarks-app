@@ -55,19 +55,19 @@ function generateBookmarkHeader(bookmark) {
 
 // Function for generating HTML for URLs
 function generateBookmarkURLHTML(bookmark) {
-  return `<a href='${
+  return `<p href='${
     bookmark.url
-  }' target="_blank">${generateBookmarkVisitButtonHTML()}</a>`;
+  }' target="_blank">${generateBookmarkVisitButtonHTML()}</p>`;
 }
 
 // Function for generating visit button HTML
 function generateBookmarkVisitButtonHTML() {
-  return '<button class="js-btn-visit" aria-label="Visit site">VISIT</button>';
+  return '<button class=" button js-btn-visit" aria-label="Visit site">VISIT</button>';
 }
 
 // Function for generating delete button HTML
 function generateDeleteButtonHTML() {
-  return '<button class="bookmark-button js-btn-delete" aria-label="Delete bookmark">DELETE</button>';
+  return '<button class="button js-btn-delete" aria-label="Delete bookmark">DELETE</button>';
 }
 
 // Function for generating HTML for descriptions

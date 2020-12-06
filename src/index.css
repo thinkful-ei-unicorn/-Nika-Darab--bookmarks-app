@@ -4,7 +4,7 @@
 h1 {
   font-family: "Raleway", sans-serif;
   font-weight: 800;
-  font-size: 68px;
+  font-size: 50px;
   text-align: center;
   margin-bottom: 0.5em;
 }
@@ -41,7 +41,7 @@ ul {
 .controls {
   display: flex;
   text-align: left;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 1.5em;
 }
 
@@ -54,25 +54,14 @@ button {
   margin-bottom: 2em;
 }
 
-.edit-btn {
-  margin-left: 10px;
-  float: right;
-}
-
 /***** Bookmarks *****/
 .bookmark-container {
   border-top: 3px solid #d1d1d1;
   padding-top: 1em;
   margin-top: 2em;
-}
+ 
 
-/* Makes the drop down look not tiny */
-select {
-  margin: auto 30px;
 }
-
-/***** Bookmarks list *****/
-/* Styles for the bookmark headers */
 
 .header-button:hover {
   border-color: #b9b9b9;
@@ -90,11 +79,13 @@ select {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+  
 }
 
 .bookmark-item {
-  margin-top: 12px;
+  /* margin: 12px auto; */
   list-style-type: none;
+ 
 }
 
 .bookmark-body {
@@ -105,15 +96,12 @@ select {
   padding-top: 0.5em;
   padding-left: 1em;
   padding-right: 1em;
+  display:block;
 }
 
 .bookmark-body p {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
-.bookmark-button {
-  float: right;
+  margin: 0 0 18px 0;
+ 
 }
 
 /***** Utility *****/
@@ -125,6 +113,7 @@ select {
 .add-btn-container {
   text-align: center;
   display: flex;
+  
 }
 
 legend {
@@ -179,9 +168,10 @@ label {
   font-weight: 600;
 }
 
-.filter-control {
+/* .filter-control {
   float: right;
-}
+  background-color: red;
+} */
 
 /***** Style buttons *****/
 button,
