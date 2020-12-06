@@ -127,12 +127,7 @@ function getDataID(bookmark) {
 }
 
 // Function for clearing form values
-function clearFormValues() {
-  $('#js-form-title').val('');
-  $('#js-form-description').val('');
-  $('#js-form-url').val('');
-  $('#js-form-rating').val('');
-}
+
 function genrateError(error){
   return `
         <div class='error-message'>
